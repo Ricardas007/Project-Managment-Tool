@@ -1,4 +1,4 @@
-package lt.codeCrusaders.testProjectManagmentTool;
+package lt.codeCrusaders.testProjectManagementTool;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,9 +17,12 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
+
     @AfterEach
-    void closeDown() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.quit();
+    void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
+
 }

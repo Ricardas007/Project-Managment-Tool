@@ -1,0 +1,1215 @@
+{
+	"info": {
+		"_postman_id": "d3c5659f-dbbe-4fdf-ae29-6c6209ae5f03",
+		"name": "user registration",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31058305"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let random = Math.random().toString(36).substring(2);",
+							"",
+							"let username = \"zuikis\" + random;",
+							"",
+							"let userEmail = \"zuikio\" + random + \"@gmail.com\"",
+							"",
+							"pm.environment.set(\"name\", username);",
+							"pm.environment.set(\"email\", userEmail);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"{{name}}\",\n    \"email\": \"{{email}}\",\n    \"password\":\"dabar123\",\n    \"confirmPassword\":\"dabar123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_uri}}/api/register",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"{{name}}\",\n    \"email\": \"{{email}}\",\n    \"password\":\"dabar123\",\n    \"confirmPassword\":\"dabar123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_uri}}/api/register",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 May 2024 10:07:37 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Successfully added user\"\n}"
+				}
+			]
+		},
+		{
+			"name": "User login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"{{name}}\",\n    \"password\":\"dabar123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_uri}}/api/login",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"{{name}}\",\n    \"password\":\"dabar123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_uri}}/api/login",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 May 2024 07:05:57 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MTY3MDcxNTcsImlhdCI6MTcxNjUzNDM1NywianRpIjoiN2U0NWVmOGMtZmFiOC00ZmU5LWEzYWMtYzAzOGIxZTZkODY0IiwiaXNzIjoib3JkZXItYXBpIiwiYXVkIjpbIm9yZGVyLWFwcCJdLCJzdWIiOiJ6dWlraXM1eTBwZ3ZjaDg5aiIsInJvbCI6WyJVc2VyIl0sIm5hbWUiOiJ6dWlraXM1eTBwZ3ZjaDg5aiIsImVtYWlsIjoienVpa2lvNXkwcGd2Y2g4OWpAZ21haWwuY29tIn0.8x7mZOSVQzmF5V8yg4Y3Hm123oGlyDgvA4q5NX3-gl2VKFpiyha8OShj-g8bTX-OUaU23LXFfdAFeNwz99UCIw\",\n    \"message\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "User email shorter than required",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let random = Math.random().toString(20).substring(2, 4);",
+							"",
+							"let userEmail = \"@gmail.com\";",
+							"",
+							"let username = \"test\" + random;",
+							"",
+							"// pm.environment.set(\"email\", userEmail);",
+							"pm.environment.set(\"name\", username);",
+							"",
+							"pm.variables.set(\"email1\", userEmail);",
+							"",
+							"// const firstNameList = [\"Dziugas\",\"Paulius\",\"Mauras\",\"Kupstas\",\"Medis\"];",
+							"",
+							"// const randomIndex = Math.floor(Math.random() * firstNameList.length);",
+							"",
+							"// const randomFristName = firstNameList[randomIndex];",
+							"",
+							"// pm.collectionVariables.set(\"randomFristName\", randomFristName);",
+							"",
+							"",
+							"// let genders = \"test\" + random + ['male', 'female'];"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MTY3MDg3MTAsImlhdCI6MTcxNjUzNTkxMCwianRpIjoiYjU2YzQ3MWYtMjE0NS00MmM5LWEzZWYtZDk0ZTRhMzM0MDg4IiwiaXNzIjoib3JkZXItYXBpIiwiYXVkIjpbIm9yZGVyLWFwcCJdLCJzdWIiOiJ6dWlraXN2N2J1a2UxM2tnbiIsInJvbCI6WyJVc2VyIl0sIm5hbWUiOiJ6dWlraXN2N2J1a2UxM2tnbiIsImVtYWlsIjoienVpa2lvdjdidWtlMTNrZ25AZ21haWwuY29tIn0.nSNLCVEOFpqgAwjdGwOF5SEz8ojyQF_GAzlbPz08wfxx3baUKRSPMZYZP-dHPOUdnwtrzdc637DTx4pxYHk-CQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"{{name}}\",\n    \"password\": \"dabar123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_uri}}/api/login",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User email field with backspace",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let random = Math.random().toString(36).substring(2);",
+							"",
+							"let username = \"zuikis\" + random;",
+							"",
+							"pm.environment.set(\"name\", username);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"{{name}}\",\n    \"email\": \" \",\n    \"password\":\"dabar123\",\n    \"confirmPassword\":\"dabar123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_uri}}/api/register",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User login with wrong credentials",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"zuikissr55g4m5\",\n    \"password\":\"dabar123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_uri}}/api/login",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Projects",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MTY2MzU2MTIsImlhdCI6MTcxNjQ2MjgxMiwianRpIjoiODU3MjIyZmUtMmI3ZC00ZmE4LTkwOTMtZDlhODdiMDlkZWRjIiwiaXNzIjoib3JkZXItYXBpIiwiYXVkIjpbIm9yZGVyLWFwcCJdLCJzdWIiOiJ6dWlraXNtZnk0cm5rYXZjOSIsInJvbCI6WyJVc2VyIl0sIm5hbWUiOiJ6dWlraXNtZnk0cm5rYXZjOSIsImVtYWlsIjoienVpa2lvbWZ5NHJua2F2YzlAZ21haWwuY29tIn0.KLehHKYHrr2mUukkth-37VAqlVatgHNLoI68U2_vVMzRFR-gBHZiQInu2ePcOKSyjjU9NGRYhR20g3UPBSbzeg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_uri}}/api/projects",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Projects",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_uri}}/api/projects",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"api",
+								"projects"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 May 2024 07:20:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 142,\n        \"name\": \"Overloaded\",\n        \"description\": \"Overloaded very good.\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 143,\n        \"name\": \"Project \",\n        \"description\": \"Description \",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": [\n            {\n                \"id\": 29,\n                \"name\": \"Task1\",\n                \"description\": \"Task1 is in field.\",\n                \"priority\": \"HIGH\",\n                \"status\": \"TODO\",\n                \"created\": \"2024-05-23T19:09:00.749+00:00\",\n                \"edited\": \"2024-05-23T19:09:00.749+00:00\"\n            },\n            {\n                \"id\": 30,\n                \"name\": \"Task2\",\n                \"description\": \"Task2 in the field\",\n                \"priority\": \"MEDIUM\",\n                \"status\": \"IN_PROGRESS\",\n                \"created\": \"2024-05-23T19:09:27.002+00:00\",\n                \"edited\": \"2024-05-23T19:09:27.002+00:00\"\n            },\n            {\n                \"id\": 31,\n                \"name\": \"Task3\",\n                \"description\": \"Task3 in the field\",\n                \"priority\": \"LOW\",\n                \"status\": \"DONE\",\n                \"created\": \"2024-05-23T19:09:48.483+00:00\",\n                \"edited\": \"2024-05-23T19:09:48.483+00:00\"\n            }\n        ]\n    },\n    {\n        \"id\": 147,\n        \"name\": \"Project 3\",\n        \"description\": \"Description 3\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 148,\n        \"name\": \"Project 4\",\n        \"description\": \"Description 4\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 149,\n        \"name\": \"Project 5\",\n        \"description\": \"Description 5\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 150,\n        \"name\": \"Project 6\",\n        \"description\": \"Description 6\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 151,\n        \"name\": \"Project 7\",\n        \"description\": \"Description 7\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 152,\n        \"name\": \"Project 8\",\n        \"description\": \"Description 8\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 153,\n        \"name\": \"Project 9\",\n        \"description\": \"Description 9\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 154,\n        \"name\": \"Project 10\",\n        \"description\": \"Description 10\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 155,\n        \"name\": \"Project 11\",\n        \"description\": \"Description 11\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 156,\n        \"name\": \"Project 12\",\n        \"description\": \"Description 12\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 157,\n        \"name\": \"Project 13\",\n        \"description\": \"Description 13\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 158,\n        \"name\": \"Project 14\",\n        \"description\": \"Description 14\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 159,\n        \"name\": \"Project 15\",\n        \"description\": \"Description 15\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 160,\n        \"name\": \"Project 16\",\n        \"description\": \"Description 16\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 161,\n        \"name\": \"Project 17\",\n        \"description\": \"Description 17\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 162,\n        \"name\": \"Project 18\",\n        \"description\": \"Description 18\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 163,\n        \"name\": \"Project 19\",\n        \"description\": \"Description 19\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 164,\n        \"name\": \"Project 20\",\n        \"description\": \"Description 20\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 165,\n        \"name\": \"Project 0\",\n        \"description\": \"Description 0\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 166,\n        \"name\": \"Project 1\",\n        \"description\": \"Description 1\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 167,\n        \"name\": \"Project 2\",\n        \"description\": \"Description 2\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 168,\n        \"name\": \"Project 3\",\n        \"description\": \"Description 3\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 169,\n        \"name\": \"Project 4\",\n        \"description\": \"Description 4\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 170,\n        \"name\": \"Project 5\",\n        \"description\": \"Description 5\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 171,\n        \"name\": \"Project 6\",\n        \"description\": \"Description 6\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 172,\n        \"name\": \"Project 7\",\n        \"description\": \"Description 7\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 173,\n        \"name\": \"Project 8\",\n        \"description\": \"Description 8\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 174,\n        \"name\": \"Project 9\",\n        \"description\": \"Description 9\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 175,\n        \"name\": \"Project 10\",\n        \"description\": \"Description 10\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 176,\n        \"name\": \"Project 11\",\n        \"description\": \"Description 11\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 177,\n        \"name\": \"Project 12\",\n        \"description\": \"Description 12\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 178,\n        \"name\": \"Project 13\",\n        \"description\": \"Description 13\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 179,\n        \"name\": \"Project 14\",\n        \"description\": \"Description 14\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 180,\n        \"name\": \"Project 15\",\n        \"description\": \"Description 15\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 181,\n        \"name\": \"Project 16\",\n        \"description\": \"Description 16\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 182,\n        \"name\": \"Project 17\",\n        \"description\": \"Description 17\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 183,\n        \"name\": \"Project 18\",\n        \"description\": \"Description 18\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 184,\n        \"name\": \"Project 19\",\n        \"description\": \"Description 19\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 185,\n        \"name\": \"Project 20\",\n        \"description\": \"Description 20\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 186,\n        \"name\": \"Project 0\",\n        \"description\": \"Description 0\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 187,\n        \"name\": \"Project 1\",\n        \"description\": \"Description 1\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 188,\n        \"name\": \"Project 2\",\n        \"description\": \"Description 2\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 189,\n        \"name\": \"Project 3\",\n        \"description\": \"Description 3\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 190,\n        \"name\": \"Project 4\",\n        \"description\": \"Description 4\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 191,\n        \"name\": \"Project 5\",\n        \"description\": \"Description 5\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 192,\n        \"name\": \"Project 6\",\n        \"description\": \"Description 6\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 193,\n        \"name\": \"Project 7\",\n        \"description\": \"Description 7\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 194,\n        \"name\": \"Project 8\",\n        \"description\": \"Description 8\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 195,\n        \"name\": \"Project 9\",\n        \"description\": \"Description 9\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 196,\n        \"name\": \"Project 10\",\n        \"description\": \"Description 10\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 197,\n        \"name\": \"Project 11\",\n        \"description\": \"Description 11\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 198,\n        \"name\": \"Project 12\",\n        \"description\": \"Description 12\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 199,\n        \"name\": \"Project 13\",\n        \"description\": \"Description 13\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 200,\n        \"name\": \"Project 14\",\n        \"description\": \"Description 14\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 201,\n        \"name\": \"Project 15\",\n        \"description\": \"Description 15\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 202,\n        \"name\": \"Project 16\",\n        \"description\": \"Description 16\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 203,\n        \"name\": \"Project 17\",\n        \"description\": \"Description 17\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 204,\n        \"name\": \"Project 18\",\n        \"description\": \"Description 18\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 205,\n        \"name\": \"Project 19\",\n        \"description\": \"Description 19\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 206,\n        \"name\": \"Project 20\",\n        \"description\": \"Description 20\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 207,\n        \"name\": \"asdasd\",\n        \"description\": \"adasda\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    },\n    {\n        \"id\": 208,\n        \"name\": \"asdasd\",\n        \"description\": \"adasda\",\n        \"status\": \"IN_PROGRESS\",\n        \"tasks\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// pm.test(\"Status code is 200\", function () {",
+							"//     pm.response.to.have.status(200);",
+							"// });",
+							"",
+							"pm.test(\"Status code is 404 not existing project\"), () => {",
+							"    pm.response.to.have.status(200, 404);",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MTY2MzU2MTIsImlhdCI6MTcxNjQ2MjgxMiwianRpIjoiODU3MjIyZmUtMmI3ZC00ZmE4LTkwOTMtZDlhODdiMDlkZWRjIiwiaXNzIjoib3JkZXItYXBpIiwiYXVkIjpbIm9yZGVyLWFwcCJdLCJzdWIiOiJ6dWlraXNtZnk0cm5rYXZjOSIsInJvbCI6WyJVc2VyIl0sIm5hbWUiOiJ6dWlraXNtZnk0cm5rYXZjOSIsImVtYWlsIjoienVpa2lvbWZ5NHJua2F2YzlAZ21haWwuY29tIn0.KLehHKYHrr2mUukkth-37VAqlVatgHNLoI68U2_vVMzRFR-gBHZiQInu2ePcOKSyjjU9NGRYhR20g3UPBSbzeg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_uri}}/api/projects/143",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"api",
+						"projects",
+						"143"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Project",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_uri}}/api/projects/143",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"api",
+								"projects",
+								"143"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 May 2024 07:20:04 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 143,\n    \"name\": \"Project \",\n    \"description\": \"Description \",\n    \"status\": \"IN_PROGRESS\",\n    \"tasks\": [\n        {\n            \"id\": 29,\n            \"name\": \"Task1\",\n            \"description\": \"Task1 is in field.\",\n            \"priority\": \"HIGH\",\n            \"status\": \"TODO\",\n            \"created\": \"2024-05-23T19:09:00.749+00:00\",\n            \"edited\": \"2024-05-23T19:09:00.749+00:00\"\n        },\n        {\n            \"id\": 30,\n            \"name\": \"Task2\",\n            \"description\": \"Task2 in the field\",\n            \"priority\": \"MEDIUM\",\n            \"status\": \"IN_PROGRESS\",\n            \"created\": \"2024-05-23T19:09:27.002+00:00\",\n            \"edited\": \"2024-05-23T19:09:27.002+00:00\"\n        },\n        {\n            \"id\": 31,\n            \"name\": \"Task3\",\n            \"description\": \"Task3 in the field\",\n            \"priority\": \"LOW\",\n            \"status\": \"DONE\",\n            \"created\": \"2024-05-23T19:09:48.483+00:00\",\n            \"edited\": \"2024-05-23T19:09:48.483+00:00\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Tasks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"// Get the tasks and current index from the environment",
+							"const tasks = JSON.parse(pm.environment.get(\"tasks\"));",
+							"let taskIndex = pm.environment.get(\"taskIndex\");",
+							"",
+							"// Check if there are tasks left to post",
+							"if (taskIndex < tasks.length) {",
+							"    // Set the current task in the request body",
+							"    pm.request.body.raw = JSON.stringify(tasks[taskIndex]);",
+							"    // Increment the task index for the next request",
+							"    pm.environment.set(\"taskIndex\", ++taskIndex);",
+							"    // Re-run the request",
+							"    postman.setNextRequest(pm.info.requestName);",
+							"} else {",
+							"    // Clear the task index once done",
+							"    pm.environment.unset(\"taskIndex\");",
+							"    postman.setNextRequest(null);",
+							"}",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MTY2MzU2MTIsImlhdCI6MTcxNjQ2MjgxMiwianRpIjoiODU3MjIyZmUtMmI3ZC00ZmE4LTkwOTMtZDlhODdiMDlkZWRjIiwiaXNzIjoib3JkZXItYXBpIiwiYXVkIjpbIm9yZGVyLWFwcCJdLCJzdWIiOiJ6dWlraXNtZnk0cm5rYXZjOSIsInJvbCI6WyJVc2VyIl0sIm5hbWUiOiJ6dWlraXNtZnk0cm5rYXZjOSIsImVtYWlsIjoienVpa2lvbWZ5NHJua2F2YzlAZ21haWwuY29tIn0.KLehHKYHrr2mUukkth-37VAqlVatgHNLoI68U2_vVMzRFR-gBHZiQInu2ePcOKSyjjU9NGRYhR20g3UPBSbzeg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_uri}}/api/projects/143/tasks",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"api",
+						"projects",
+						"143",
+						"tasks"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Tasks",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_uri}}/api/projects/143/tasks",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"api",
+								"projects",
+								"143",
+								"tasks"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 May 2024 07:06:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 29,\n        \"name\": \"Task1\",\n        \"description\": \"Task1 is in field.\",\n        \"priority\": \"HIGH\",\n        \"status\": \"TODO\",\n        \"created\": \"2024-05-23T19:09:00.749+00:00\",\n        \"edited\": \"2024-05-23T19:09:00.749+00:00\"\n    },\n    {\n        \"id\": 30,\n        \"name\": \"Task2\",\n        \"description\": \"Task2 in the field\",\n        \"priority\": \"MEDIUM\",\n        \"status\": \"IN_PROGRESS\",\n        \"created\": \"2024-05-23T19:09:27.002+00:00\",\n        \"edited\": \"2024-05-23T19:09:27.002+00:00\"\n    },\n    {\n        \"id\": 31,\n        \"name\": \"Task3\",\n        \"description\": \"Task3 in the field\",\n        \"priority\": \"LOW\",\n        \"status\": \"DONE\",\n        \"created\": \"2024-05-23T19:09:48.483+00:00\",\n        \"edited\": \"2024-05-23T19:09:48.483+00:00\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Create Projects",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is, 201\", () => {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MTY2MzU2MTIsImlhdCI6MTcxNjQ2MjgxMiwianRpIjoiODU3MjIyZmUtMmI3ZC00ZmE4LTkwOTMtZDlhODdiMDlkZWRjIiwiaXNzIjoib3JkZXItYXBpIiwiYXVkIjpbIm9yZGVyLWFwcCJdLCJzdWIiOiJ6dWlraXNtZnk0cm5rYXZjOSIsInJvbCI6WyJVc2VyIl0sIm5hbWUiOiJ6dWlraXNtZnk0cm5rYXZjOSIsImVtYWlsIjoienVpa2lvbWZ5NHJua2F2YzlAZ21haWwuY29tIn0.KLehHKYHrr2mUukkth-37VAqlVatgHNLoI68U2_vVMzRFR-gBHZiQInu2ePcOKSyjjU9NGRYhR20g3UPBSbzeg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"asdasd\",\n        \"description\": \"adasda\",\n        \"status\": \"IN_PROGRESS\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_uri}}/api/projects",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Projects",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"name\": \"asdasd\",\n        \"description\": \"adasda\",\n        \"status\": \"IN_PROGRESS\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_uri}}/api/projects",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"api",
+								"projects"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 May 2024 07:21:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 210,\n    \"name\": \"asdasd\",\n    \"description\": \"adasda\",\n    \"status\": \"IN_PROGRESS\",\n    \"tasks\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", () => {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3MTY2MzU2MTIsImlhdCI6MTcxNjQ2MjgxMiwianRpIjoiODU3MjIyZmUtMmI3ZC00ZmE4LTkwOTMtZDlhODdiMDlkZWRjIiwiaXNzIjoib3JkZXItYXBpIiwiYXVkIjpbIm9yZGVyLWFwcCJdLCJzdWIiOiJ6dWlraXNtZnk0cm5rYXZjOSIsInJvbCI6WyJVc2VyIl0sIm5hbWUiOiJ6dWlraXNtZnk0cm5rYXZjOSIsImVtYWlsIjoienVpa2lvbWZ5NHJua2F2YzlAZ21haWwuY29tIn0.KLehHKYHrr2mUukkth-37VAqlVatgHNLoI68U2_vVMzRFR-gBHZiQInu2ePcOKSyjjU9NGRYhR20g3UPBSbzeg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"asdasd\",\n        \"description\": \"adasda\",\n        \"status\": \"IN_PROGRESS\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_uri}}/api/projects/141",
+					"host": [
+						"{{base_uri}}"
+					],
+					"path": [
+						"api",
+						"projects",
+						"141"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Projects Copy",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"name\": \"asdasd\",\n        \"description\": \"adasda\",\n        \"status\": \"IN_PROGRESS\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_uri}}/api/projects/141",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"api",
+								"projects",
+								"141"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 May 2024 07:20:39 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "randomFirstName",
+			"value": "{{randomFristName}}",
+			"type": "string"
+		},
+		{
+			"key": "randomFristName",
+			"value": ""
+		}
+	]
+}
